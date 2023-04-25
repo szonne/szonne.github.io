@@ -17,4 +17,4 @@ categories: miscellaneous
 >
 > By Phil knight from `<Shoe Dog>`
 
-![Image](/img/2023-04-25-phil-knight.jpeg)  
+![Image](/docs/_site/assets/2023-04-25-phil-knight.jpeg)  
