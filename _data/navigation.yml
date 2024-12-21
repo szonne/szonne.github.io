@@ -10,3 +10,11 @@ main:
   #   url: /collection-archive/
   # - title: "Sitemap"
   #   url: /sitemap/
+
+docs:
+  - title: "Math/Statistics"
+    children:
+      - title: "Calculus"
+        url: /categories/calculus
+      - title: "Statistics"
+        url: /categories/statistics
