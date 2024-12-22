@@ -1,5 +1,6 @@
 ---
 title: "Singly Linked List (단순연결리스트)"
+categories: "data-structure"
 tags: "data-structure"
 toc: true
 toc_sticky: true
