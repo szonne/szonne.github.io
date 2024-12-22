@@ -13,126 +13,123 @@ toc_label: "On This Page"
 
 단순 연결 리스트의 경우 단 방향으로 노드들이 연결되어 있기 때문에 삽입이나 삭제 시에 노드들의 이동이 필요하지 않다. 삽입과 삭제 시에는 기존 노드의 앞, 뒤 노드만 적절히 처리해주면 된다. 이 자료구조의 단점은 탐색 시에 항상 첫 노드부터 원하는 노드를 찾을 때까지 순차 탐색(Sequential Search)을 해야한다는 점이다.
 
-연결리스트를 `Python`으로 구현하려면 필요한 기능들은 다음과 같다
+### 구현 (Python)
 
-### 연결 리스트를 구성하는 노드 정의
+연결리스트를 `Python`으로 구현하려면 필요한 기능들은 다음과 같다.
+- 노드는 데이터와 다음 노드를 가리키는 포인터로 구성
+  ```python
+  class Node:
+      def __init__(self, data, link):
+      self.data = data
+      self.next = link
+  ```
 
-노드는 데이터와 다음 노드를 가리키는 포인터로 구성
+- 연결 리스트 클래스 정의
+  - 리스트의 크기를 출력하는 함수
+  - 리스트가 비어있는지 확인하는 함수
+  - 리스트의 맨 앞으로 노드를 추가하는 함수
+  - 리스트의 특정 노드 뒤로 새 노드를 추가하는 함수
+  - 리스트의 맨 앞 노드를 삭제하는 함수
+  - 리스트의 특정 노드 뒤에 있는 노드를 삭제하는 함수
+  - 순차 탐색하는 함수
+  - 연결 리스트를 모두 출력하는 함수
+
+  ```python
+  class SList:
+      def __init__(self):
+          self._size = 0
+          self.head = None
+  
+      @property
+      def size(self):
+          return self._size
+  
+      def is_empty(self):
+          return self._size == 0
+          
+      def insert_at_front(self, data):
+          if self.is_empty():
+              self.head = Node(data, None)
+          else:
+              prev_link = self.head
+              self.head = Node(data, prev_link)
+              
+          self._size += 1
+      
+      def insert_after(self, data, node):
+          # 기존에 가리키던 node를 데이터 변수에 저장
+          original_next_node = node.next
+          
+          # 새 노드 생성
+          new_node = Node(data, original_next_node)
+          
+          # 새로 생성한 노드를 삽입
+          link.next = new_node
+          
+          self._size += 1
+          
+      def delete_at_front(self):
+          if self.is_empty():
+              raise ValueError('Empty list')
+          
+          self.head = self.head.next
+          
+          self._size -= 1
+      
+      def delete_after(self, node):
+          original_next_node = node.next
+          
+          link.next = original_next_node.next
+          
+          self._size -= 1
+          
+      def search(self, target):
+          if self.is_empty():
+              raise ValueError('Empty list')
+          
+          for i in range(self.size):
+              if self.head.data == target:
+                  return i
+  
+              self.head = self.head.next
+          
+          return -1
+      
+      def print_list(self):
+          if self.is_empty():
+              return None
+          
+          cur = self.head
+          
+          while cur:
+              if cur.next:
+                  print(cur.data, ' -> ', end='')
+              else:
+                  print(cur.data, end='')
+                  
+              cur = cur.next
+  
+  ```
+
+- 간단한 예시 실행 결과
 ```python
-class Node:
-    def __init__(self, data, link):
-    self.data = data
-    self.next = link
-```
-
-### 연결 리스트 클래스 정의
-
-- 리스트의 크기를 출력하는 함수
-- 리스트가 비어있는지 확인하는 함수
-- 리스트의 맨 앞으로 노드를 추가하는 함수
-- 리스트의 특정 노드 뒤로 새 노드를 추가하는 함수
-- 리스트의 맨 앞 노드를 삭제하는 함수
-- 리스트의 특정 노드 뒤에 있는 노드를 삭제하는 함수
-- 순차 탐색하는 함수
-- 연결 리스트를 모두 출력하는 함수
-
-```python
-class SList:
-    def __init__(self):
-        self._size = 0
-        self.head = None
-
-    @property
-    def size(self):
-        return self._size
-
-    def is_empty(self):
-        return self._size == 0
-        
-    def insert_at_front(self, data):
-        if self.is_empty():
-            self.head = Node(data, None)
-        else:
-            prev_link = self.head
-            self.head = Node(data, prev_link)
-            
-        self._size += 1
-    
-    def insert_after(self, data, node):
-        # 기존에 가리키던 node를 데이터 변수에 저장
-        original_next_node = node.next
-        
-        # 새 노드 생성
-        new_node = Node(data, original_next_node)
-        
-        # 새로 생성한 노드를 삽입
-        link.next = new_node
-        
-        self._size += 1
-        
-    def delete_at_front(self):
-        if self.is_empty():
-            raise ValueError('Empty list')
-        
-        self.head = self.head.next
-        
-        self._size -= 1
-    
-    def delete_after(self, node):
-        original_next_node = node.next
-        
-        link.next = original_next_node.next
-        
-        self._size -= 1
-        
-    def search(self, target):
-        if self.is_empty():
-            raise ValueError('Empty list')
-        
-        for i in range(self.size):
-            if self.head.data == target:
-                return i
-
-            self.head = self.head.next
-        
-        return -1
-    
-    def print_list(self):
-        if self.is_empty():
-            return None
-        
-        cur = self.head
-        
-        while cur:
-            if cur.next:
-                print(cur.data, ' -> ', end='')
-            else:
-                print(cur.data, end='')
-                
-            cur = cur.next
-
-```
-
-### 간단한 예시 실행 결과
-
-```python
-list_= SList()
-list_.insert_front('A')
-list_.insert_front('B')
-list_.insert_front('C')
-list_.print_list()
-
-# C  -> B  -> A
-
-print(f"B는 리스트의 {list_.search('B') + 1} 번째 위치함.")
-# B는 리스트의 2 번째 위치함.
-
-# 1을 B 다음에 추가
-list_.insert_after(1, list_.head.next)
-
-list_.print_list()
-# C  -> B  -> 1  -> A
-```
+  list_= SList()
+  list_.insert_front('A')
+  list_.insert_front('B')
+  list_.insert_front('C')
+  list_.print_list()
+  
+  # C  -> B  -> A
+  
+  print(f"B는 리스트의 {list_.search('B') + 1} 번째 위치함.")
+  # B는 리스트의 2 번째 위치함.
+  
+  # 1을 B 다음에 추가
+  list_.insert_after(1, list_.head.next)
+  
+  list_.print_list()
+  # C  -> B  -> 1  -> A
+  ```
 
 이름 그대로 단순 연결 리스트의 특징은 데이터들이 서로 연결되어 있다는 점이다. 이러한 특성은 단순 연결 리스트가 여러 가지 장,단점을 갖는 이유가 된다.
 
