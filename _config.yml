@@ -315,4 +315,6 @@ defaults:
       read_time: true
       comments: # true
       share: false
-      related: # true
+      related: true
+      sidebar:
+        nav: "sidebar-category"
