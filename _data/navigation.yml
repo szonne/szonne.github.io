@@ -19,15 +19,20 @@ main:
 
 sidebar-category:
   - title: "💻 Programming"
+    url:
     children:
-      - title: "C#"
-        url: "/csharp"
-        category: "csharp"
+      - title: "Data Structure"
+        url: "/categories/data-structure"
+        category: "data-structure"
+      - title: "Algorithm"
+        url: "/categories/algorithm"
+        category: "algorithm"
 
-      - title: "Minimal-Mistakes"
-        url: "/Minimal-Mistakes"
-        category: "Minimal-Mistakes"
-
-      - title: "Tools"
-        url: "/Tools"
-        category: "Tools"
+  - title: "💯 Math"
+    children:
+      - title: "Statistics"
+        url: "/categories/statistics"
+        category: "statistics"
+#      - title: "Calculus"
+#        url: "/calculus"
+#        category: "calculus"
