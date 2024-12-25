@@ -10,28 +10,32 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Data Structure - 스존 공부노트</title>
-<meta name="description" content="기껏 공부한 것 흘리지 않고 주워 담기">
+<!-- begin _includes/seo.html --><title>Doubly Linked List (이중연결리스트) - 스존 공부노트</title>
+<meta name="description" content="이중 연결 리스트 (Doubly Linked List)">
 
 
   <meta name="author" content="Szonne">
   
+  <meta property="article:author" content="Szonne">
+  
 
 
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="스존 공부노트">
-<meta property="og:title" content="Data Structure">
-<meta property="og:url" content="http://localhost:4000/categories/data-structure">
+<meta property="og:title" content="Doubly Linked List (이중연결리스트)">
+<meta property="og:url" content="http://localhost:4000/data-structure/doubly-linked-list/">
 
 
-  <meta property="og:description" content="기껏 공부한 것 흘리지 않고 주워 담기">
-
-
-
+  <meta property="og:description" content="이중 연결 리스트 (Doubly Linked List)">
 
 
 
+
+
+
+
+  <meta property="article:published_time" content="2024-12-25T00:00:00+09:00">
 
 
 
@@ -42,7 +46,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/categories/data-structure">
+<link rel="canonical" href="http://localhost:4000/data-structure/doubly-linked-list/">
 
 
 
@@ -88,7 +92,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-  <body class="layout--archive" dir="ltr">
+  <body class="layout--single" dir="ltr">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
@@ -150,10 +154,122 @@
 
 
 
+
+
 <div id="main" role="main">
   
   <div class="sidebar sticky">
   
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/profile-image.png" alt="Szonne" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Szonne</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>Interested in Football</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Seoul, Republic of Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:seungjong0222@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/szonne" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://linkedin.com/in/seongjonghan" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
   
     
       
@@ -183,7 +299,7 @@
                 
                 
 
-                <li><a href="/categories/data-structure" class="active">Data Structure(2)</a></li>
+                <li><a href="/categories/data-structure">Data Structure(2)</a></li>
                 
 
                 
@@ -223,22 +339,20 @@
 
 
 
-  <div class="archive">
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Doubly Linked List (이중연결리스트)">
+    <meta itemprop="description" content="이중 연결 리스트 (Doubly Linked List)">
+    <meta itemprop="datePublished" content="2024-12-25T00:00:00+09:00">
     
-      <h1 id="page-title" class="page__title">Data Structure</h1>
-    
-    <p>자료 구조 정리 노트, 그런데 직접 구현을 곁들인</p>
 
-<div class="list__item">
-  <article class="archive__item" itemscope="" itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
+    <div class="page__inner-wrap">
       
-        <a href="/data-structure/doubly-linked-list/" rel="permalink">Doubly Linked List (이중연결리스트)
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="http://localhost:4000/data-structure/doubly-linked-list/" itemprop="url">Doubly Linked List (이중연결리스트)
 </a>
-      
-    </h2>
-    
+          </h1>
+          
 
   <p class="page__meta">
     
@@ -259,14 +373,102 @@
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">이중 연결 리스트 (Doubly Linked List)
+        </header>
+      
 
-</p>
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
+              <ul class="toc__menu"><li><a href="#이중-연결-리스트-doubly-linked-list">이중 연결 리스트 (Doubly Linked List)</a></li></ul>
+            </nav>
+          </aside>
+        
+        <h2 id="이중-연결-리스트-doubly-linked-list">이중 연결 리스트 (Doubly Linked List)</h2>
+
+<p><img src="/assets/images/doubly-linked-list.png" alt="이중연결리스트" title="Doubly Linked List" /></p>
+
+<p>이중 연결 리스트는 단순 연결 리스트가 갖고 있는 단점을 보완한다.
+단순 연결 리스트가 단방향으로 노드들이 연결되어 있는 것에 반해, 이중 연결 리스트는 이름 그대로 노드들이 양방향으로 연결되어 있다.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#data-structure" class="page__taxonomy-item p-category" rel="tag">data-structure</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#data-structure" class="page__taxonomy-item p-category" rel="tag">data-structure</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2024-12-25T00:00:00+09:00">December 25, 2024</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/data-structure/singly-linked-list/" class="pagination--pager" title="Singly Linked List (단순연결리스트)">이전</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">다음</a>
+    
+  </nav>
+
+
+    </div>
+
+    
   </article>
-</div>
 
-<div class="list__item">
-  <article class="archive__item" itemscope="" itemtype="https://schema.org/CreativeWork">
+  
+  
+    
+<div class="page__related">
+  
+  <h2 class="page__related-title">참고</h2>
+  <div class="grid__wrapper">
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
@@ -301,8 +503,12 @@
   </article>
 </div>
 
-
+    
   </div>
+</div>
+
+  
+  
 </div>
 
       
