@@ -6,9 +6,13 @@ tags: "data-structure"
 toc: true
 toc_sticky: true
 toc_label: "On This Page"
+related: "/_posts/2024-12-22-singly-linked-list.md"
 ---
 
 ## 단순 연결 리스트 (Singly Linked List)
+
+![단순연결리스트](/assets/images/singly-linked-list.png "Singly Linked List")
+
 
 단순 연결 리스트는 동적 메모리 할당을 이용하여 노드들을 한 방향으로 연결하여 리스트를 구현하는 자료구조다.
 
