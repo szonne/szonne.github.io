@@ -6,6 +6,7 @@ tags: "data-structure"
 toc: true
 toc_sticky: true
 toc_label: "On This Page"
+related: "/_posts/2024-12-22-singly-linked-list.md"
 ---
 
 ## 단순 연결 리스트 (Singly Linked List)
