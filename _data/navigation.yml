@@ -19,7 +19,6 @@ main:
 
 sidebar-category:
   - title: "💻 Programming"
-    url:
     children:
       - title: "Data Structure"
         url: "/categories/data-structure"
@@ -27,6 +26,11 @@ sidebar-category:
       - title: "Algorithm"
         url: "/categories/algorithm"
         category: "algorithm"
+  - title: "🔤 Language"
+    children:
+      - title: "MongoDB"
+        url: "/categories/mongodb"
+        category: "mongodb"
 
   - title: "💯 Math"
     children:
