@@ -314,6 +314,25 @@
         
         <li>
             
+            <span class="nav__sub-title">🔤 Language</span>
+            
+
+            
+            <ul>
+                
+
+                
+                
+                
+
+                <li><a href="/categories/mongodb">MongoDB(0)</a></li>
+                
+            </ul>
+            
+        </li>
+        
+        <li>
+            
             <span class="nav__sub-title">💯 Math</span>
             
 
@@ -366,7 +385,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          2 분 소요
+          3 분 소요
         
       </span>
     
@@ -381,7 +400,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
-              <ul class="toc__menu"><li><a href="#이중-연결-리스트-doubly-linked-list">이중 연결 리스트 (Doubly Linked List)</a><ul><li><a href="#구현-python">구현 (Python)</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#이중-연결-리스트-doubly-linked-list">이중 연결 리스트 (Doubly Linked List)</a><ul><li><a href="#구현-python">구현 (Python)</a><ul><li><a href="#이중-연결-리스트의-생성자-구현">이중 연결 리스트의 생성자 구현</a></li><li><a href="#이중-연결-리스트의-유틸-메소드-구현">이중 연결 리스트의 유틸 메소드 구현.</a></li><li><a href="#이중-연결-리스트의-데이터-삽입-관련-메소드-구현">이중 연결 리스트의 데이터 삽입 관련 메소드 구현</a></li><li><a href="#이중-연결-리스트의-삭제-관련-메소드-구현">이중 연결 리스트의 삭제 관련 메소드 구현</a></li><li><a href="#이중-연결-리스트의-아이템-출력-관련-메소드-구현">이중 연결 리스트의 아이템 출력 관련 메소드 구현</a></li><li><a href="#완성된-이중-연결-리스트-클래스를-활용한-예시-코드">완성된 이중 연결 리스트 클래스를 활용한 예시 코드</a></li><li><a href="#최종-코드">최종 코드</a></li></ul></li><li><a href="#장점">장점</a></li><li><a href="#단점">단점</a></li><li><a href="#사용처">사용처</a></li></ul></li></ul>
             </nav>
           </aside>
         
@@ -402,45 +421,47 @@
       <span class="bp">self</span><span class="p">.</span><span class="nb">next</span> <span class="o">=</span> <span class="n">next_</span>
 </code></pre></div>    </div>
   </li>
-  <li>이중 연결 리스트의 생성자 구현
-    <ul>
-      <li>최초 초기화 시에 이중 연결 리스트의 크기는 <code class="language-plaintext highlighter-rouge">0</code></li>
-      <li>단순 연결 리스트와 다르게 이중 연결 리스트에서는 head와 tail 2개의 포인터가 있고, head는 리스트의 가장 처음, tail은 리스트의 가장 마지막 노드를 가리킨다.</li>
-      <li>2개의 포인터가 있음으로써 리스트의 앞단, 혹은 끝단에서의 탐색이나 데이터 삭제, 추가 등이 용이해질 수 있다.</li>
-    </ul>
+</ul>
 
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">DList</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">_size</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
-            <span class="n">data</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-            <span class="n">prev</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-            <span class="n">next_</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-        <span class="p">)</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">tail</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
-            <span class="n">data</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-            <span class="n">prev</span><span class="o">=</span><span class="bp">self</span><span class="p">.</span><span class="n">head</span><span class="p">,</span>
-            <span class="n">next_</span><span class="o">=</span><span class="bp">None</span>
-        <span class="p">)</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">head</span><span class="p">.</span><span class="nb">next</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">tail</span>
-</code></pre></div>    </div>
-  </li>
-  <li>이중 연결 리스트의 유틸 메소드 구현.
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">DList</span><span class="p">:</span>
-    <span class="p">...</span>
-    <span class="o">@</span><span class="nb">property</span>
-    <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">_size</span>
+<h4 id="이중-연결-리스트의-생성자-구현">이중 연결 리스트의 생성자 구현</h4>
+<ul>
+  <li>최초 초기화 시에 이중 연결 리스트의 크기는 <code class="language-plaintext highlighter-rouge">0</code></li>
+  <li>단순 연결 리스트와 다르게 이중 연결 리스트에서는 head와 tail 2개의 포인터가 있고, head는 리스트의 가장 처음, tail은 리스트의 가장 마지막 노드를 가리킨다.</li>
+  <li>2개의 포인터가 있음으로써 리스트의 앞단, 혹은 끝단에서의 탐색이나 데이터 삭제, 추가 등이 용이해질 수 있다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">class</span> <span class="nc">DList</span><span class="p">:</span>
+      <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+          <span class="bp">self</span><span class="p">.</span><span class="n">_size</span> <span class="o">=</span> <span class="mi">0</span>
+          <span class="bp">self</span><span class="p">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
+              <span class="n">data</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+              <span class="n">prev</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+              <span class="n">next_</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+          <span class="p">)</span>
+          <span class="bp">self</span><span class="p">.</span><span class="n">tail</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
+              <span class="n">data</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+              <span class="n">prev</span><span class="o">=</span><span class="bp">self</span><span class="p">.</span><span class="n">head</span><span class="p">,</span>
+              <span class="n">next_</span><span class="o">=</span><span class="bp">None</span>
+          <span class="p">)</span>
+          <span class="bp">self</span><span class="p">.</span><span class="n">head</span><span class="p">.</span><span class="nb">next</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">tail</span>
+</code></pre></div></div>
+
+<h4 id="이중-연결-리스트의-유틸-메소드-구현">이중 연결 리스트의 유틸 메소드 구현.</h4>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">class</span> <span class="nc">DList</span><span class="p">:</span>
+      <span class="p">...</span>
+      <span class="o">@</span><span class="nb">property</span>
+      <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+          <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">_size</span>
       
-    <span class="k">def</span> <span class="nf">is_empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span>
-</code></pre></div>    </div>
-  </li>
-  <li>이중 연결 리스트의 데이터 삽입 관련 메소드 구현
-    <ul>
-      <li>단순 연결 리스트와의 차이점은 새로운 노드를 추가할 때 이전, 이후 노드를 모두 수정해줘야한다는 점이다.</li>
-      <li><code class="language-plaintext highlighter-rouge">A &lt;-&gt; B</code> 사이에 <code class="language-plaintext highlighter-rouge">C</code> 노드를 추가한다고 하면, A의 next를 B에서 C로 수정하고 B의 prev를 A에서 C로 수정해야 한다.
-        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">DList</span><span class="p">:</span>
+      <span class="k">def</span> <span class="nf">is_empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+          <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span>
+</code></pre></div></div>
+
+<h4 id="이중-연결-리스트의-데이터-삽입-관련-메소드-구현">이중 연결 리스트의 데이터 삽입 관련 메소드 구현</h4>
+<ul>
+  <li>단순 연결 리스트와의 차이점은 새로운 노드를 추가할 때 이전, 이후 노드를 모두 수정해줘야한다는 점이다.</li>
+  <li><code class="language-plaintext highlighter-rouge">A &lt;-&gt; B</code> 사이에 <code class="language-plaintext highlighter-rouge">C</code> 노드를 추가한다고 하면, A의 next를 B에서 C로 수정하고 B의 prev를 A에서 C로 수정해야 한다.
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">class</span> <span class="nc">DList</span><span class="p">:</span>
   <span class="p">...</span>
   <span class="k">def</span> <span class="nf">insert_before</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
       <span class="n">prev_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">.</span><span class="n">prev</span>
@@ -459,15 +480,15 @@
       <span class="n">next_node</span><span class="p">.</span><span class="n">prev</span> <span class="o">=</span> <span class="n">new_node</span>
           
       <span class="bp">self</span><span class="p">.</span><span class="n">_size</span> <span class="o">+=</span> <span class="mi">1</span>
-</code></pre></div>        </div>
-      </li>
-    </ul>
+</code></pre></div>    </div>
   </li>
-  <li>이중 연결 리스트의 삭제 관련 메소드 구현
-    <ul>
-      <li>삭제하려는 노드의 앞, 뒤에 위치한 노드를 서로 이어준다.</li>
-      <li>삭제하려는 대상이 head, tail일 경우에 대한 예외처리를 추가한다.
-        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">DList</span><span class="p">:</span>
+</ul>
+
+<h4 id="이중-연결-리스트의-삭제-관련-메소드-구현">이중 연결 리스트의 삭제 관련 메소드 구현</h4>
+<ul>
+  <li>삭제하려는 노드의 앞, 뒤에 위치한 노드를 서로 이어준다.</li>
+  <li>삭제하려는 대상이 head, tail일 경우에 대한 예외처리를 추가한다.
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">class</span> <span class="nc">DList</span><span class="p">:</span>
   <span class="p">...</span>
   <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
       <span class="c1"># 삭제하려는 노드가 head인 경우
@@ -483,15 +504,15 @@
           <span class="n">node</span><span class="p">.</span><span class="nb">next</span><span class="p">.</span><span class="n">prev</span> <span class="o">=</span> <span class="n">node</span><span class="p">.</span><span class="n">prev</span>
           
       <span class="bp">self</span><span class="p">.</span><span class="n">_size</span> <span class="o">-=</span> <span class="mi">1</span>
-</code></pre></div>        </div>
-      </li>
-    </ul>
+</code></pre></div>    </div>
   </li>
-  <li>이중 연결 리스트의 아이템 출력 관련 메소드 구현
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">head</code>, <code class="language-plaintext highlighter-rouge">tail</code>을 이용해서 순차적으로 혹은 역순으로 리스트 아이템을 출력할 수 있다.</li>
-      <li><code class="language-plaintext highlighter-rouge">reverse</code> 인자를 통해서 앞에서부터 혹은 뒤에서부터 출력할 지 결정한다.
-        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">DList</span><span class="p">:</span>
+</ul>
+
+<h4 id="이중-연결-리스트의-아이템-출력-관련-메소드-구현">이중 연결 리스트의 아이템 출력 관련 메소드 구현</h4>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">head</code>, <code class="language-plaintext highlighter-rouge">tail</code>을 이용해서 순차적으로 혹은 역순으로 리스트 아이템을 출력할 수 있다.</li>
+  <li><code class="language-plaintext highlighter-rouge">reverse</code> 인자를 통해서 앞에서부터 혹은 뒤에서부터 출력할 지 결정한다.
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">class</span> <span class="nc">DList</span><span class="p">:</span>
   <span class="p">...</span>
   <span class="k">def</span> <span class="nf">print_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
       <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">is_empty</span><span class="p">():</span>
@@ -513,109 +534,144 @@
               <span class="n">curr</span> <span class="o">=</span> <span class="n">curr</span><span class="p">.</span><span class="n">prev</span>
               
       <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</code></pre></div>        </div>
-      </li>
-    </ul>
-  </li>
-  <li>완성된 이중 연결 리스트 클래스를 활용한 예시 코드
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">d_list</span> <span class="o">=</span> <span class="n">DList</span><span class="p">()</span>
-<span class="n">d_list</span><span class="p">.</span><span class="n">insert_after</span><span class="p">(</span><span class="n">d_list</span><span class="p">.</span><span class="n">head</span><span class="p">,</span> <span class="s">'A'</span><span class="p">)</span>
-<span class="n">d_list</span><span class="p">.</span><span class="n">insert_after</span><span class="p">(</span><span class="n">d_list</span><span class="p">.</span><span class="n">head</span><span class="p">,</span> <span class="s">'B'</span><span class="p">)</span>
-<span class="n">d_list</span><span class="p">.</span><span class="n">insert_after</span><span class="p">(</span><span class="n">d_list</span><span class="p">.</span><span class="n">head</span><span class="p">,</span> <span class="s">'C'</span><span class="p">)</span>
-  
-<span class="n">d_list</span><span class="p">.</span><span class="n">insert_after</span><span class="p">(</span><span class="n">d_list</span><span class="p">.</span><span class="n">head</span><span class="p">.</span><span class="nb">next</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">d_list</span><span class="p">.</span><span class="n">print_list</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<span class="c1"># C-&gt;1-&gt;B-&gt;A
-</span>  
-<span class="n">d_list</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="n">d_list</span><span class="p">.</span><span class="n">tail</span><span class="p">.</span><span class="n">prev</span><span class="p">)</span>
-<span class="n">d_list</span><span class="p">.</span><span class="n">print_list</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<span class="c1"># C&lt;-1&lt;-B
-</span></code></pre></div>    </div>
-  </li>
-  <li>최종 코드
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Node</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">prev</span><span class="p">,</span> <span class="n">next_</span><span class="p">):</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">prev</span> <span class="o">=</span> <span class="n">prev</span>
-        <span class="bp">self</span><span class="p">.</span><span class="nb">next</span> <span class="o">=</span> <span class="n">next_</span>
-  
-<span class="k">class</span> <span class="nc">DList</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">_size</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
-            <span class="n">data</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-            <span class="n">prev</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-            <span class="n">next_</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-        <span class="p">)</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">tail</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
-            <span class="n">data</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-            <span class="n">prev</span><span class="o">=</span><span class="bp">self</span><span class="p">.</span><span class="n">head</span><span class="p">,</span>
-            <span class="n">next_</span><span class="o">=</span><span class="bp">None</span>
-        <span class="p">)</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">head</span><span class="p">.</span><span class="nb">next</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">tail</span>
-          
-    <span class="o">@</span><span class="nb">property</span>
-    <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">_size</span>
-      
-    <span class="k">def</span> <span class="nf">is_empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span>
-      
-    <span class="k">def</span> <span class="nf">insert_before</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="n">prev_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">.</span><span class="n">prev</span>
-        <span class="n">new_node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">prev</span><span class="o">=</span><span class="n">prev_node</span><span class="p">,</span> <span class="n">next_</span><span class="o">=</span><span class="n">node</span><span class="p">)</span>
-          
-        <span class="n">prev_node</span><span class="p">.</span><span class="nb">next</span> <span class="o">=</span> <span class="n">new_node</span>
-        <span class="n">node</span><span class="p">.</span><span class="n">prev</span> <span class="o">=</span> <span class="n">new_node</span>
-          
-        <span class="bp">self</span><span class="p">.</span><span class="n">_size</span> <span class="o">+=</span> <span class="mi">1</span>
-          
-    <span class="k">def</span> <span class="nf">insert_after</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="n">next_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">.</span><span class="nb">next</span>
-        <span class="n">new_node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">prev</span><span class="o">=</span><span class="n">node</span><span class="p">,</span> <span class="n">next_</span><span class="o">=</span><span class="n">next_node</span><span class="p">)</span>
-          
-        <span class="n">node</span><span class="p">.</span><span class="nb">next</span> <span class="o">=</span> <span class="n">new_node</span>
-        <span class="n">next_node</span><span class="p">.</span><span class="n">prev</span> <span class="o">=</span> <span class="n">new_node</span>
-          
-        <span class="bp">self</span><span class="p">.</span><span class="n">_size</span> <span class="o">+=</span> <span class="mi">1</span>
-          
-    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
-        <span class="c1"># 삭제하려는 노드가 head인 경우
-</span>        <span class="k">if</span> <span class="ow">not</span> <span class="n">node</span><span class="p">.</span><span class="n">prev</span><span class="p">:</span>
-            <span class="bp">self</span><span class="p">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">node</span><span class="p">.</span><span class="nb">next</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">node</span><span class="p">.</span><span class="n">prev</span><span class="p">.</span><span class="nb">next</span> <span class="o">=</span> <span class="n">node</span><span class="p">.</span><span class="nb">next</span>
-              
-        <span class="c1"># 삭제하려는 노드가 tail인 경우
-</span>        <span class="k">if</span> <span class="ow">not</span> <span class="n">node</span><span class="p">.</span><span class="nb">next</span><span class="p">:</span>
-            <span class="bp">self</span><span class="p">.</span><span class="n">tail</span> <span class="o">=</span> <span class="n">node</span><span class="p">.</span><span class="n">prev</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">node</span><span class="p">.</span><span class="nb">next</span><span class="p">.</span><span class="n">prev</span> <span class="o">=</span> <span class="n">node</span><span class="p">.</span><span class="n">prev</span>
-          
-        <span class="bp">self</span><span class="p">.</span><span class="n">_size</span> <span class="o">-=</span> <span class="mi">1</span>
-          
-    <span class="k">def</span> <span class="nf">print_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">is_empty</span><span class="p">():</span>
-            <span class="k">print</span><span class="p">(</span><span class="s">''</span><span class="p">)</span>
-            <span class="k">return</span>
-          
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">reverse</span><span class="p">:</span>
-            <span class="n">curr</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">head</span><span class="p">.</span><span class="nb">next</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="sa">f</span><span class="s">'</span><span class="si">{</span><span class="n">curr</span><span class="p">.</span><span class="n">data</span><span class="si">}</span><span class="s">'</span>
-              
-            <span class="k">while</span> <span class="n">curr</span><span class="p">.</span><span class="nb">next</span> <span class="o">!=</span> <span class="bp">self</span><span class="p">.</span><span class="n">tail</span><span class="p">:</span>
-                <span class="n">result</span> <span class="o">+=</span> <span class="sa">f</span><span class="s">'-&gt;</span><span class="si">{</span><span class="n">curr</span><span class="p">.</span><span class="nb">next</span><span class="p">.</span><span class="n">data</span><span class="si">}</span><span class="s">'</span>
-                <span class="n">curr</span> <span class="o">=</span> <span class="n">curr</span><span class="p">.</span><span class="nb">next</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">curr</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">tail</span><span class="p">.</span><span class="n">prev</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="sa">f</span><span class="s">'</span><span class="si">{</span><span class="n">curr</span><span class="p">.</span><span class="n">data</span><span class="si">}</span><span class="s">'</span>
-            <span class="k">while</span> <span class="n">curr</span><span class="p">.</span><span class="n">prev</span> <span class="o">!=</span> <span class="bp">self</span><span class="p">.</span><span class="n">head</span><span class="p">:</span>
-                <span class="n">result</span> <span class="o">=</span> <span class="sa">f</span><span class="s">'</span><span class="si">{</span><span class="n">curr</span><span class="p">.</span><span class="n">prev</span><span class="p">.</span><span class="n">data</span><span class="si">}</span><span class="s">&lt;-'</span> <span class="o">+</span> <span class="n">result</span>
-                <span class="n">curr</span> <span class="o">=</span> <span class="n">curr</span><span class="p">.</span><span class="n">prev</span>
-              
-        <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </code></pre></div>    </div>
   </li>
+</ul>
+
+<h4 id="완성된-이중-연결-리스트-클래스를-활용한-예시-코드">완성된 이중 연결 리스트 클래스를 활용한 예시 코드</h4>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">d_list</span> <span class="o">=</span> <span class="n">DList</span><span class="p">()</span>
+  <span class="n">d_list</span><span class="p">.</span><span class="n">insert_after</span><span class="p">(</span><span class="n">d_list</span><span class="p">.</span><span class="n">head</span><span class="p">,</span> <span class="s">'A'</span><span class="p">)</span>
+  <span class="n">d_list</span><span class="p">.</span><span class="n">insert_after</span><span class="p">(</span><span class="n">d_list</span><span class="p">.</span><span class="n">head</span><span class="p">,</span> <span class="s">'B'</span><span class="p">)</span>
+  <span class="n">d_list</span><span class="p">.</span><span class="n">insert_after</span><span class="p">(</span><span class="n">d_list</span><span class="p">.</span><span class="n">head</span><span class="p">,</span> <span class="s">'C'</span><span class="p">)</span>
+  
+  <span class="n">d_list</span><span class="p">.</span><span class="n">insert_after</span><span class="p">(</span><span class="n">d_list</span><span class="p">.</span><span class="n">head</span><span class="p">.</span><span class="nb">next</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="n">d_list</span><span class="p">.</span><span class="n">print_list</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+  <span class="c1"># C-&gt;1-&gt;B-&gt;A
+</span>  
+  <span class="n">d_list</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="n">d_list</span><span class="p">.</span><span class="n">tail</span><span class="p">.</span><span class="n">prev</span><span class="p">)</span>
+  <span class="n">d_list</span><span class="p">.</span><span class="n">print_list</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+  <span class="c1"># C&lt;-1&lt;-B
+</span></code></pre></div></div>
+
+<h4 id="최종-코드">최종 코드</h4>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">class</span> <span class="nc">Node</span><span class="p">:</span>
+      <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">prev</span><span class="p">,</span> <span class="n">next_</span><span class="p">):</span>
+          <span class="bp">self</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
+          <span class="bp">self</span><span class="p">.</span><span class="n">prev</span> <span class="o">=</span> <span class="n">prev</span>
+          <span class="bp">self</span><span class="p">.</span><span class="nb">next</span> <span class="o">=</span> <span class="n">next_</span>
+  
+  <span class="k">class</span> <span class="nc">DList</span><span class="p">:</span>
+      <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+          <span class="bp">self</span><span class="p">.</span><span class="n">_size</span> <span class="o">=</span> <span class="mi">0</span>
+          <span class="bp">self</span><span class="p">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
+              <span class="n">data</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+              <span class="n">prev</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+              <span class="n">next_</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+          <span class="p">)</span>
+          <span class="bp">self</span><span class="p">.</span><span class="n">tail</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
+              <span class="n">data</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+              <span class="n">prev</span><span class="o">=</span><span class="bp">self</span><span class="p">.</span><span class="n">head</span><span class="p">,</span>
+              <span class="n">next_</span><span class="o">=</span><span class="bp">None</span>
+          <span class="p">)</span>
+          <span class="bp">self</span><span class="p">.</span><span class="n">head</span><span class="p">.</span><span class="nb">next</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">tail</span>
+          
+      <span class="o">@</span><span class="nb">property</span>
+      <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+          <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">_size</span>
+      
+      <span class="k">def</span> <span class="nf">is_empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+          <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span>
+      
+      <span class="k">def</span> <span class="nf">insert_before</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+          <span class="n">prev_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">.</span><span class="n">prev</span>
+          <span class="n">new_node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">prev</span><span class="o">=</span><span class="n">prev_node</span><span class="p">,</span> <span class="n">next_</span><span class="o">=</span><span class="n">node</span><span class="p">)</span>
+          
+          <span class="n">prev_node</span><span class="p">.</span><span class="nb">next</span> <span class="o">=</span> <span class="n">new_node</span>
+          <span class="n">node</span><span class="p">.</span><span class="n">prev</span> <span class="o">=</span> <span class="n">new_node</span>
+          
+          <span class="bp">self</span><span class="p">.</span><span class="n">_size</span> <span class="o">+=</span> <span class="mi">1</span>
+          
+      <span class="k">def</span> <span class="nf">insert_after</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+          <span class="n">next_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">.</span><span class="nb">next</span>
+          <span class="n">new_node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">prev</span><span class="o">=</span><span class="n">node</span><span class="p">,</span> <span class="n">next_</span><span class="o">=</span><span class="n">next_node</span><span class="p">)</span>
+          
+          <span class="n">node</span><span class="p">.</span><span class="nb">next</span> <span class="o">=</span> <span class="n">new_node</span>
+          <span class="n">next_node</span><span class="p">.</span><span class="n">prev</span> <span class="o">=</span> <span class="n">new_node</span>
+          
+          <span class="bp">self</span><span class="p">.</span><span class="n">_size</span> <span class="o">+=</span> <span class="mi">1</span>
+          
+      <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+          <span class="c1"># 삭제하려는 노드가 head인 경우
+</span>          <span class="k">if</span> <span class="ow">not</span> <span class="n">node</span><span class="p">.</span><span class="n">prev</span><span class="p">:</span>
+              <span class="bp">self</span><span class="p">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">node</span><span class="p">.</span><span class="nb">next</span>
+          <span class="k">else</span><span class="p">:</span>
+              <span class="n">node</span><span class="p">.</span><span class="n">prev</span><span class="p">.</span><span class="nb">next</span> <span class="o">=</span> <span class="n">node</span><span class="p">.</span><span class="nb">next</span>
+              
+          <span class="c1"># 삭제하려는 노드가 tail인 경우
+</span>          <span class="k">if</span> <span class="ow">not</span> <span class="n">node</span><span class="p">.</span><span class="nb">next</span><span class="p">:</span>
+              <span class="bp">self</span><span class="p">.</span><span class="n">tail</span> <span class="o">=</span> <span class="n">node</span><span class="p">.</span><span class="n">prev</span>
+          <span class="k">else</span><span class="p">:</span>
+              <span class="n">node</span><span class="p">.</span><span class="nb">next</span><span class="p">.</span><span class="n">prev</span> <span class="o">=</span> <span class="n">node</span><span class="p">.</span><span class="n">prev</span>
+          
+          <span class="bp">self</span><span class="p">.</span><span class="n">_size</span> <span class="o">-=</span> <span class="mi">1</span>
+          
+      <span class="k">def</span> <span class="nf">print_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+          <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">is_empty</span><span class="p">():</span>
+              <span class="k">print</span><span class="p">(</span><span class="s">''</span><span class="p">)</span>
+              <span class="k">return</span>
+          
+          <span class="k">if</span> <span class="ow">not</span> <span class="n">reverse</span><span class="p">:</span>
+              <span class="n">curr</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">head</span><span class="p">.</span><span class="nb">next</span>
+              <span class="n">result</span> <span class="o">=</span> <span class="sa">f</span><span class="s">'</span><span class="si">{</span><span class="n">curr</span><span class="p">.</span><span class="n">data</span><span class="si">}</span><span class="s">'</span>
+              
+              <span class="k">while</span> <span class="n">curr</span><span class="p">.</span><span class="nb">next</span> <span class="o">!=</span> <span class="bp">self</span><span class="p">.</span><span class="n">tail</span><span class="p">:</span>
+                  <span class="n">result</span> <span class="o">+=</span> <span class="sa">f</span><span class="s">'-&gt;</span><span class="si">{</span><span class="n">curr</span><span class="p">.</span><span class="nb">next</span><span class="p">.</span><span class="n">data</span><span class="si">}</span><span class="s">'</span>
+                  <span class="n">curr</span> <span class="o">=</span> <span class="n">curr</span><span class="p">.</span><span class="nb">next</span>
+          <span class="k">else</span><span class="p">:</span>
+              <span class="n">curr</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">tail</span><span class="p">.</span><span class="n">prev</span>
+              <span class="n">result</span> <span class="o">=</span> <span class="sa">f</span><span class="s">'</span><span class="si">{</span><span class="n">curr</span><span class="p">.</span><span class="n">data</span><span class="si">}</span><span class="s">'</span>
+              <span class="k">while</span> <span class="n">curr</span><span class="p">.</span><span class="n">prev</span> <span class="o">!=</span> <span class="bp">self</span><span class="p">.</span><span class="n">head</span><span class="p">:</span>
+                  <span class="n">result</span> <span class="o">=</span> <span class="sa">f</span><span class="s">'</span><span class="si">{</span><span class="n">curr</span><span class="p">.</span><span class="n">prev</span><span class="p">.</span><span class="n">data</span><span class="si">}</span><span class="s">&lt;-'</span> <span class="o">+</span> <span class="n">result</span>
+                  <span class="n">curr</span> <span class="o">=</span> <span class="n">curr</span><span class="p">.</span><span class="n">prev</span>
+              
+          <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="장점">장점</h3>
+<ul>
+  <li>양방향 탐색 가능
+    <ul>
+      <li>이중 연결 리스트의 대표적인 장점으로 양방향 탐색을 꼽을 수 있다. 단순 연결 리스트는 단방향의 연결로 인해서 역순으로 탐색하는 것이 구조적으로 불가능하다. 하지만 이중 연결 리스트의 경우 포인터가 2개(<code class="language-plaintext highlighter-rouge">head</code>, <code class="language-plaintext highlighter-rouge">tail</code>) 있기 때문에 앞에서부터 혹은 뒤에서부터 리스트 탐색이 가능하다.</li>
+      <li>하지만, 시간 복잡도 자체는 <code class="language-plaintext highlighter-rouge">O(n)</code>으로 단순 연결 리스트와 동일하다.</li>
+    </ul>
+  </li>
+  <li>삭제, 삽입의 편리성
+    <ul>
+      <li>단순 연결 리스트와 비교했을 때 특정 노드를 찾기가 더 쉽기 때문에 결과적으로 노드 삽입이나 삭제가 더 편리해진다는 장점도 있다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="단점">단점</h3>
+<ul>
+  <li>메모리의 추가 사용
+    <ul>
+      <li>단순 연결 리스트와 비교했을 때, 포인터가 2개로 늘어나면서 메모리 사용량이 조금 더 많다.</li>
+    </ul>
+  </li>
+  <li>구조의 복잡성
+    <ul>
+      <li>단순 연결 리스트의 간단한 구조에 비해서 약간 더 복잡한 구조로 되어있다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="사용처">사용처</h3>
+<ul>
+  <li>이중 연결 리스트는 양방향 탐색과 삽입 또는 삭제의 효율성이 필요한 환경에서 유용할 수 있다.
+특히 <strong>브라우저 기록</strong>, 캐시 관리, 작업 스케줄링, 파일 시스템 같은 시스템 프로그래밍이나 텍스트 편집기, 데이터 처리 알고리즘과 같은 응용 프로그램에서 자주 활용된다.</li>
+  <li>브라우저 방문 기록에서 뒤로, 혹은 앞으로 탐색하는 경우가 많다. 이전 페이지나 다음 페이지로 이동할 때 이중 연결 리스트 구조가 사용된다.</li>
+  <li>LRU(Least Recently Used) Cache에서도 이중 연결 리스트가 활용된다. 캐시에 있는 데이터를 참조할 때, 노드를 앞으로 이동하거나 제거할 때 이중 연결 리스트 구조가 사용된다.</li>
 </ul>
 
         
